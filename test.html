@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>두더지 잡기 게임</title>
+  <link rel="stylesheet" href="./test.css">
+  <script src="./test.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>두더지 잡기</h1>
+
+    <div class="inner_box">
+      <img src="./images/hammers/1.png" alt="뿅망치 이미지">
+      <div id="equipName">+1 빨강 뿅망치</div>
+      <div id="equipDetail">성공 확률 99%</div>
+    </div>
+
+    <h1>두더지 게임</h1>
+    <p>점수: <span id="score">0</span></p>
+    <div class="game-board">
+        <div class="hole-row">
+            <div class="hole" id="hole1"></div>
+            <div class="hole" id="hole2"></div>
+            <div class="hole" id="hole3"></div>
+        </div>
+        <div class="hole-row">
+            <div class="hole" id="hole4"></div>
+            <div class="hole" id="hole5"></div>
+            <div class="hole" id="hole6"></div>
+        </div>
+        <div class="hole-row">
+            <div class="hole" id="hole7"></div>
+            <div class="hole" id="hole8"></div>
+            <div class="hole" id="hole9"></div>
+        </div>
+    </div>
+
+    <div class="score-board">
+      <div class="panda" id="positivePanda"></div>
+      <div id="scoreBoard">0</div>
+      <div class="panda" id="negativePanda"></div>
+    </div>
+
+    <div id="timeBoard">30</div>
+  </div>
+
+
+</body>
+</html>
