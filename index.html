@@ -5,21 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>두더지 게임</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
 </head>
 <body>
-    <h1>두더지 게임</h1>
-    <p>점수: <span id="score">0</span></p>
-    <div class="game-board">
-        <div class="hole" id="hole0"></div>
-        <div class="hole" id="hole1"></div>
-        <div class="hole" id="hole2"></div>
-        <div class="hole" id="hole3"></div>
-        <div class="hole" id="hole4"></div>
-        <div class="hole" id="hole5"></div>
-        <div class="hole" id="hole6"></div>
-        <div class="hole" id="hole7"></div>
-        <div class="hole" id="hole8"></div>
-        <div class="hole" id="hole9"></div>
+    <div class="container">
+        <h1>두더지 게임</h1>
+        <p>점수: <span id="score">0</span></p>
+        <p>타이머: <span id="timer">20</span> 초</p>
+        <button id="start-button">게임 시작</button>
+        <div class="game-board">
+            <div class="hole" id="hole0"></div>
+            <div class="hole" id="hole1"></div>
+            <div class="hole" id="hole2"></div>
+            <div class="hole" id="hole3"></div>
+            <div class="hole" id="hole4"></div>
+            <div class="hole" id="hole5"></div>
+            <div class="hole" id="hole6"></div>
+            <div class="hole" id="hole7"></div>
+            <div class="hole" id="hole8"></div>
+            <div class="hole" id="hole9"></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
