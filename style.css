@@ -1,58 +1,58 @@
-
 body {
     text-align: center;
     font-family: Arial, sans-serif;
-    background-image: url('./images/grass.png'); /* 배경 이미지 경로 설정 */
+    background-image: url('images/grass.png'); /* 배경 이미지 경로 설정 */
     background-size: cover;
     background-color: #f0f0f0; /* 기본 배경색 추가 (디버깅용) */
 }
 
 .game-board {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    width: 330px; /* 또는 원하는 게임판 너비 */
-    margin: 0 auto; /* 게임판을 수평 중앙 정렬 */
-    justify-content: center; /* 게임판 내부 요소들을 수평 중앙 정렬 */
-    align-items: center; /* 게임판 내부 요소들을 수직 중앙 정렬 */
-}  
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    width: 500px;
+    margin: 20px auto;
+}
 
 .hole {
-    width: 100px;
-    height: 100px;
-    background-image: url('./images/hole.png');
-    background-size: contain; /* Use contain to fit the image inside */
-    background-repeat: no-repeat; /* Prevent image repetition */
-    background-position: center; /* Center the image */
-    margin: 5px;
+    width: 80px;
+    height: 80px;
+    background-image: url('images/hole.png'); /* 구멍 이미지 경로 설정 */
+    background-size: cover;
     position: relative;
-    overflow: hidden;
 }
 
 .mole {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     position: absolute;
     top: 10px;
     left: 10px;
     display: none;
 }
 
-.mole up {
-    bottom: 0;
-}
-
 .mole1 {
-    background-image: url('./images/panda/panda_nomal.png'); /* 두더지1 이미지 경로 설정 */
+    background-image: url('images/panda/panda_nomal.png'); /* 두더지1 이미지 경로 설정 */
     background-size: cover;
 }
 
 .mole2 {
-    background-image: url('./images/panda/panda_ill.png'); /* 두더지2 이미지 경로 설정 */
+    background-image: url('images/panda/panda_ill.png'); /* 두더지2 이미지 경로 설정 */
     background-size: cover;
 }
 
 .mole3 {
-    background-image: url('./images/panda/panda_gold.png'); /* 두더지3 이미지 경로 설정 */
+    background-image: url('images/panda/panda_gold.png'); /* 두더지3 이미지 경로 설정 */
     background-size: cover;
+}
+
+#custom-cursor {
+    position: absolute;
+    width: 179px; /* 원하는 커서 이미지 크기 */
+    height: 214px;
+    background-image: url('images/hammers/1.png'); /* 커서 이미지 경로 */
+    background-size: cover;
+    pointer-events: none; /* 이미지가 클릭을 방해하지 않도록 */
+    transform: translate(-50%, -50%);
 }
