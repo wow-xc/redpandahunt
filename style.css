@@ -30,11 +30,12 @@ body {
 }
 
 .mole {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     position: absolute;
-    bottom: -100%;
-    transition: bottom 0.3s ease-out;
+    top: 10px;
+    left: 10px;
+    display: none;
 }
 
 .mole up {
