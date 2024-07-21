@@ -1,50 +1,57 @@
+
 body {
     text-align: center;
     font-family: Arial, sans-serif;
-    background-image: url('images/background-image.jpg'); /* 배경 이미지 경로 설정 */
+    background-image: url('./images/grass.png'); /* 배경 이미지 경로 설정 */
     background-size: cover;
     background-color: #f0f0f0; /* 기본 배경색 추가 (디버깅용) */
-    cursor: url('images/custom-cursor.png'), auto; /* 마우스 커서 이미지 경로 설정 */
 }
 
 .game-board {
-    display: flex;
-    flex-wrap: wrap;
-    width: 320px;
-    margin: 20px auto;
-}
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 330px; /* 또는 원하는 게임판 너비 */
+    margin: 0 auto; /* 게임판을 수평 중앙 정렬 */
+    justify-content: center; /* 게임판 내부 요소들을 수평 중앙 정렬 */
+    align-items: center; /* 게임판 내부 요소들을 수직 중앙 정렬 */
+}  
 
 .hole {
     width: 100px;
     height: 100px;
-    background-image: url('images/hole-image.png'); /* 구멍 이미지 경로 설정 */
-    background-size: cover;
-    border: 1px solid #999;
+    background-image: url('./images/hole.png');
+    background-size: contain; /* Use contain to fit the image inside */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-position: center; /* Center the image */
     margin: 5px;
     position: relative;
-    cursor: url('images/custom-cursor.png'), auto; /* 마우스 커서 이미지 경로 설정 */
+    overflow: hidden;
 }
 
 .mole {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     position: absolute;
-    top: 10px;
-    left: 10px;
-    display: none;
+    bottom: -100%;
+    transition: bottom 0.3s ease-out;
+}
+
+.mole up {
+    bottom: 0;
 }
 
 .mole1 {
-    background-image: url('images/mole1-image.png'); /* 두더지1 이미지 경로 설정 */
+    background-image: url('./images/panda/panda_nomal.png'); /* 두더지1 이미지 경로 설정 */
     background-size: cover;
 }
 
 .mole2 {
-    background-image: url('images/mole2-image.png'); /* 두더지2 이미지 경로 설정 */
+    background-image: url('./images/panda/panda_ill.png'); /* 두더지2 이미지 경로 설정 */
     background-size: cover;
 }
 
 .mole3 {
-    background-image: url('images/mole3-image.png'); /* 두더지3 이미지 경로 설정 */
+    background-image: url('./images/panda/panda_gold.png'); /* 두더지3 이미지 경로 설정 */
     background-size: cover;
 }

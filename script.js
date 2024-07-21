@@ -10,7 +10,7 @@ function showMole() {
     const holes = document.querySelectorAll('.hole');
     const randomHole = holes[Math.floor(Math.random() * holes.length)];
     const randomMoleType = moleTypes[Math.floor(Math.random() * moleTypes.length)];
-    
+
     const mole = document.createElement('div');
     mole.classList.add('mole', randomMoleType);
     randomHole.appendChild(mole);
