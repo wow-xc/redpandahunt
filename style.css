@@ -1,0 +1,50 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-image: url('images/background-image.jpg'); /* 배경 이미지 경로 설정 */
+    background-size: cover;
+    background-color: #f0f0f0; /* 기본 배경색 추가 (디버깅용) */
+    cursor: url('images/custom-cursor.png'), auto; /* 마우스 커서 이미지 경로 설정 */
+}
+
+.game-board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 320px;
+    margin: 20px auto;
+}
+
+.hole {
+    width: 100px;
+    height: 100px;
+    background-image: url('images/hole-image.png'); /* 구멍 이미지 경로 설정 */
+    background-size: cover;
+    border: 1px solid #999;
+    margin: 5px;
+    position: relative;
+    cursor: url('images/custom-cursor.png'), auto; /* 마우스 커서 이미지 경로 설정 */
+}
+
+.mole {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: none;
+}
+
+.mole1 {
+    background-image: url('images/mole1-image.png'); /* 두더지1 이미지 경로 설정 */
+    background-size: cover;
+}
+
+.mole2 {
+    background-image: url('images/mole2-image.png'); /* 두더지2 이미지 경로 설정 */
+    background-size: cover;
+}
+
+.mole3 {
+    background-image: url('images/mole3-image.png'); /* 두더지3 이미지 경로 설정 */
+    background-size: cover;
+}
