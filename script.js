@@ -1,4 +1,6 @@
-let score = 0;
+let currentScore = 0;
+let previousScore = 0;
+let highScore = 0;
 let gameInterval;
 let gameTimeout;
 let timerInterval;
@@ -25,10 +27,12 @@ function showMoles() {
         mole.classList.add('mole', randomMoleType);
         randomHole.appendChild(mole);
         mole.style.display = 'block';
+        mole.style.position = 'relative';
+        mole.style.top = '-10px';
 
         mole.addEventListener('click', () => {
-            score += molePoints[randomMoleType];
-            document.getElementById('score').textContent = score;
+            currentScore += molePoints[randomMoleType];
+            document.getElementById('current-score').textContent = currentScore;
             mole.remove();
         });
 
@@ -39,8 +43,10 @@ function showMoles() {
 }
 
 function startGame() {
-    score = 0;
-    document.getElementById('score').textContent = score;
+    previousScore = currentScore;
+    currentScore = 0;
+    document.getElementById('current-score').textContent = currentScore;
+    document.getElementById('previous-score').textContent = previousScore;
     document.getElementById('timer').textContent = 20;
 
     gameInterval = setInterval(showMoles, 1500);
@@ -56,15 +62,18 @@ function startGame() {
 
     gameTimeout = setTimeout(() => {
         clearInterval(gameInterval);
-        alert('게임 종료! 최종 점수: ' + score);
+        if (currentScore > highScore) {
+            highScore = currentScore;
+        }
+        document.getElementById('high-score').textContent = highScore;
     }, 20000);
 }
 
 document.getElementById('start-button').addEventListener('click', startGame);
 
 // 커서 이미지 이동 처리
-document.addEventListener('mousemove', (e) => {
-    const customCursor = document.getElementById('custom-cursor');
-    customCursor.style.left = `${e.clientX}px`;
-    customCursor.style.top = `${e.clientY}px`;
-});
+// document.addEventListener('mousemove', (e) => {
+//     const customCursor = document.getElementById('custom-cursor');
+//     customCursor.style.left = `${e.clientX}px`;
+//     customCursor.style.top = `${e.clientY}px`;
+// });

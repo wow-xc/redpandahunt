@@ -11,20 +11,10 @@ body {
     margin: 0;
 }
 
-/* .container {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-} */
-
-.game-board {
+.grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 20px;
-    width: 500px;
-    margin: 20px auto;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
 .hole {
