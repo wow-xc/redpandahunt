@@ -28,26 +28,30 @@ body {
 }
 .mole {
     width: 60px;
-    height: 60px;
+    height: 54px;
     position: absolute;
     top: 10px;
-    left: 10px;
+    left: 20px; /* 변경: left 값을 20px로 조정 */
     display: none;
 }
 
 .mole1 {
-    background-image: url('images/panda/panda_nomal.png'); /* 기본두더지 */
-    background-size: cover;
+    background-image: url('images/panda/panda_nomal.png'); /* 기본 두더지 */
+    background-size: contain; /* 변경: cover -> contain */
+    background-position: center; /* 중앙에 위치하도록 설정 */
 }
 
 .mole2 {
+    height: 52px;
     background-image: url('images/panda/panda_ill.png'); /* 아픈 두더지 */
-    background-size: cover;
+    background-size: contain; /* 변경: cover -> contain */
+    background-position: center; /* 중앙에 위치하도록 설정 */
 }
 
 .mole3 {
     background-image: url('images/panda/panda_gold.png'); /* 황금 두더지 */
-    background-size: cover;
+    background-size: contain; /* 변경: cover -> contain */
+    background-position: center; /* 중앙에 위치하도록 설정 */
 }
 
 #start-button {

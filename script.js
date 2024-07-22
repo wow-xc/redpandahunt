@@ -16,7 +16,11 @@ const molePoints = {
 // 두더지 출현 비율
 const moleProbability = [0, 0, 0, 0, 1, 2]; // 4:1:1 비율
 
+let timeLeft = 20; // 타이머를 전역 변수로 설정
+
 function showMoles() {
+    if (timeLeft <= 1) return; // 남은 시간이 1초 이하일 때 두더지 생성 중단
+
     const holes = document.querySelectorAll('.hole');
     const numMoles = Math.floor(Math.random() * 3) + 1; // 1에서 3개의 두더지
     const selectedHoles = new Set();
@@ -61,7 +65,7 @@ function startGame() {
 
     gameInterval = setInterval(showMoles, 1500);
 
-    let timeLeft = 20;
+    timeLeft = 20; // 타이머 초기화
     timerInterval = setInterval(() => {
         timeLeft -= 1;
         document.getElementById('timer').textContent = timeLeft;
