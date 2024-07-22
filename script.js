@@ -102,3 +102,28 @@ document.getElementById('start-button').addEventListener('click', () => {
         startGame();
     }
 });
+
+document.addEventListener('mousemove', (event) => {
+    const image = document.getElementById('rotate-image');
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+
+    const imageWidth = image.offsetWidth;
+    const imageHeight = image.offsetHeight;
+
+    const newX = mouseX - imageWidth / 2;
+    const newY = mouseY - imageHeight / 2;
+
+    image.style.left = `${newX}px`;
+    image.style.top = `${newY}px`;
+});
+
+document.addEventListener('click', () => {
+    const image = document.getElementById('rotate-image');
+
+    image.style.transform = 'rotate(-90deg)';
+
+    setTimeout(() => {
+        image.style.transform = 'rotate(0deg)';
+    }, 200);
+});
