@@ -6,26 +6,26 @@ let gameTimeout;
 let timerInterval;
 let gameRunning = false;
 
-const moleTypes = ['mole1', 'mole2', 'mole3'];
-const molePoints = {
-    mole1: 1,
-    mole2: -1,
-    mole3: 3
+const pandaTypes = ['panda_normal', 'panda_ill', 'panda_gold'];
+const pandaPoints = {
+    panda_normal: 1,
+    panda_ill: -1,
+    panda_gold: 3
 };
 
-// 두더지 출현 비율
-const moleProbability = [0, 0, 0, 0, 1, 2]; // 4:1:1 비율
+// 래서판다 출현 비율
+const pandaProbability = [0, 0, 0, 0, 1, 2]; // 4:1:1 비율
 
 let timeLeft = 20; // 타이머를 전역 변수로 설정
 
-function showMoles() {
-    if (timeLeft <= 1) return; // 남은 시간이 1초 이하일 때 두더지 생성 중단
+function showPandas() {
+    if (timeLeft <= 1) return; // 1초남기고 잡았을 때 점수버그가 있기에 1초전에 게임 중단
 
     const holes = document.querySelectorAll('.hole');
-    const numMoles = Math.floor(Math.random() * 3) + 1; // 1에서 3개의 두더지
+    const numPandas = Math.floor(Math.random() * 3) + 1; // 래서판다 랜덤으로 1~3마리
     const selectedHoles = new Set();
 
-    for (let i = 0; i < numMoles; i++) {
+    for (let i = 0; i < numPandas; i++) {
         let randomHole;
         do {
             randomHole = holes[Math.floor(Math.random() * holes.length)];
@@ -33,24 +33,24 @@ function showMoles() {
         
         selectedHoles.add(randomHole);
 
-        const randomMoleType = moleTypes[moleProbability[Math.floor(Math.random() * moleProbability.length)]];
+        const randomPandaType = pandaTypes[pandaProbability[Math.floor(Math.random() * pandaProbability.length)]];
 
-        const mole = document.createElement('div');
-        mole.classList.add('mole', randomMoleType);
-        randomHole.appendChild(mole);
-        mole.style.display = 'block';
-        mole.style.position = 'relative';
-        mole.style.top = '-10px';
+        const panda = document.createElement('div');
+        panda.classList.add('panda', randomPandaType);
+        randomHole.appendChild(panda);
+        panda.style.display = 'block';
+        panda.style.position = 'relative';
+        panda.style.top = '-10px';
 
-        mole.addEventListener('click', () => {
-            currentScore += molePoints[randomMoleType];
+        panda.addEventListener('click', () => {
+            currentScore += pandaPoints[randomPandaType];
             document.getElementById('current-score').textContent = currentScore;
-            mole.remove();
+            panda.remove();
         });
 
         setTimeout(() => {
-            mole.remove();
-        }, Math.random() * 1000 + 500); // 0.5초에서 1.5초 사이의 랜덤 시간 동안 두더지 표시
+            panda.remove();
+        }, Math.random() * 1000 + 500); //래서판다 나오는 시간
     }
 }
 
@@ -63,7 +63,7 @@ function startGame() {
     document.getElementById('previous-score').textContent = previousScore;
     document.getElementById('timer').textContent = 20;
 
-    gameInterval = setInterval(showMoles, 1500);
+    gameInterval = setInterval(showPandas, 1500);
 
     timeLeft = 20; // 타이머 초기화
     timerInterval = setInterval(() => {
