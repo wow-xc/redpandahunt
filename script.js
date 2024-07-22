@@ -4,6 +4,7 @@ let highScore = 0;
 let gameInterval;
 let gameTimeout;
 let timerInterval;
+let gameRunning = false;
 
 const moleTypes = ['mole1', 'mole2', 'mole3'];
 const molePoints = {
@@ -18,11 +19,18 @@ const moleProbability = [0, 0, 0, 0, 1, 2]; // 4:1:1 비율
 function showMoles() {
     const holes = document.querySelectorAll('.hole');
     const numMoles = Math.floor(Math.random() * 3) + 1; // 1에서 3개의 두더지
+    const selectedHoles = new Set();
 
     for (let i = 0; i < numMoles; i++) {
-        const randomHole = holes[Math.floor(Math.random() * holes.length)];
-        const randomMoleType = moleTypes[moleProbability[Math.floor(Math.random() * moleProbability.length)]];
+        let randomHole;
+        do {
+            randomHole = holes[Math.floor(Math.random() * holes.length)];
+        } while (selectedHoles.has(randomHole));
         
+        selectedHoles.add(randomHole);
+
+        const randomMoleType = moleTypes[moleProbability[Math.floor(Math.random() * moleProbability.length)]];
+
         const mole = document.createElement('div');
         mole.classList.add('mole', randomMoleType);
         randomHole.appendChild(mole);
@@ -43,6 +51,8 @@ function showMoles() {
 }
 
 function startGame() {
+    gameRunning = true;
+    document.getElementById('start-button').disabled = true;
     previousScore = currentScore;
     currentScore = 0;
     document.getElementById('current-score').textContent = currentScore;
@@ -66,14 +76,25 @@ function startGame() {
             highScore = currentScore;
         }
         document.getElementById('high-score').textContent = highScore;
+        document.getElementById('start-button').innerText = '게임 시작';
+        document.getElementById('start-button').disabled = false;
+        gameRunning = false;
     }, 20000);
 }
 
-document.getElementById('start-button').addEventListener('click', startGame);
+function stopGame() {
+    gameRunning = false;
+    clearInterval(gameInterval);
+    clearInterval(timerInterval);
+    clearTimeout(gameTimeout);
+    document.getElementById('start-button').innerText = '게임 시작';
+    document.getElementById('start-button').disabled = false;
+}
 
-// 커서 이미지 이동 처리
-// document.addEventListener('mousemove', (e) => {
-//     const customCursor = document.getElementById('custom-cursor');
-//     customCursor.style.left = `${e.clientX}px`;
-//     customCursor.style.top = `${e.clientY}px`;
-// });
+document.getElementById('start-button').addEventListener('click', () => {
+    if (gameRunning) {
+        stopGame();
+    } else {
+        startGame();
+    }
+});
