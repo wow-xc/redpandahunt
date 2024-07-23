@@ -18,7 +18,6 @@ let timeLeft = 30; // 타이머를 전역 변수로 설정
 let score = document.getElementById('current-score');
 let timer = document.getElementById("timer");
 let startbutton = document.getElementById("start-button");
-const panda = document.createElement('div');
 
 function showPandas() {
     if (timeLeft <= 1) return; // 1초남기고 잡았을 때 점수버그가 있기에 1초전에 게임 중단
@@ -37,6 +36,7 @@ function showPandas() {
 
         const randomPandaType = pandaTypes[pandaProbability[Math.floor(Math.random() * pandaProbability.length)]];
 
+        const panda = document.createElement('div');
         panda.classList.add('panda', randomPandaType);
         randomHole.appendChild(panda);
         panda.style.display = 'block';
