@@ -105,26 +105,3 @@ document.getElementById('start-button').addEventListener('click', () => {
         startGame();
     }
 });
-
-document.addEventListener('mousemove', (event) => {
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
-
-    const imageWidth = image.offsetWidth;
-    const imageHeight = image.offsetHeight;
-
-    const newX = mouseX - imageWidth / 2;
-    const newY = mouseY - imageHeight / 2;
-
-    image.style.left = `${newX}px`;
-    image.style.top = `${newY}px`;
-});
-
-document.addEventListener('click', () => {
-
-    image.style.transform = 'rotate(-90deg)';
-
-    setTimeout(() => {
-        image.style.transform = 'rotate(0deg)';
-    }, 200);
-});
