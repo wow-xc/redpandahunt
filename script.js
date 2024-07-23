@@ -57,7 +57,7 @@ function showPandas() {
 
 function startGame() {
     gameRunning = true;
-    startbutton.disabled = true;
+    startbutton.style.display = 'none'; // 시작 버튼 숨기기
     currentScore = 0;
     score.textContent = currentScore;
     timer.textContent = 30;
@@ -75,19 +75,9 @@ function startGame() {
 
     gameTimeout = setTimeout(() => {
         clearInterval(gameInterval);
-        startbutton.innerText = '게임 시작';
-        startbutton.disabled = false;
+        startbutton.style.display = 'block'; // 시작 버튼 다시 표시
         gameRunning = false;
     }, 30000);
-}
-
-function stopGame() {
-    gameRunning = false;
-    clearInterval(gameInterval);
-    clearInterval(timerInterval);
-    clearTimeout(gameTimeout);
-    startbutton.innerText = '게임 시작';
-    startbutton.disabled = false;
 }
 
 startbutton.addEventListener('click', () => {
