@@ -29,7 +29,7 @@ body {
 }
 .panda {
     width: 80px;
-    height: 74px;
+    height: 72px;
     position: absolute;
     top: 10px;
     left: 20px;
@@ -43,7 +43,7 @@ body {
 }
 
 .panda_ill {
-    background-image: url('images/panda/panda_ill.png'); /* 아픈 래서판다 */
+    background-image: url('images/panda/panda_ill_remake.png'); /* 아픈 래서판다 */
     background-size: contain;
     background-position: center;
 }
