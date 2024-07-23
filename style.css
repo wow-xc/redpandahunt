@@ -12,14 +12,6 @@ body {
     overflow: hidden;
 }
 
-#rotate-image {
-    position: absolute;
-    pointer-events: none; /* 이미지 위에서 클릭이 발생하지 않도록 설정 */
-    width: 100px; /* 이미지 크기 조정 */
-    height: auto;
-    transition: transform 0.2s; /* 회전 애니메이션 부드럽게 적용 */
-}
-
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -27,8 +19,8 @@ body {
 }
 
 .hole {
-    width: 130px;
-    height: 130px;
+    width: 100px;
+    height: 100px;
     background-image: url('images/hole.png');
     background-size: contain;
     background-position: center;
@@ -36,10 +28,10 @@ body {
     position: relative;
 }
 .panda {
-    width: 80px;
-    height: 74px;
+    width: 60px;
+    height: 54px;
     position: absolute;
-    top: 20px;
+    top: 10px;
     left: 20px;
     display: none;
 }
@@ -51,6 +43,7 @@ body {
 }
 
 .panda_ill {
+    height: 52px;
     background-image: url('images/panda/panda_ill.png'); /* 아픈 래서판다 */
     background-size: contain;
     background-position: center;
