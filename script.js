@@ -78,7 +78,7 @@ function startGame() {
         startbutton.innerText = '게임 시작';
         startbutton.disabled = false;
         gameRunning = false;
-    }, 20000);
+    }, 30000);
 }
 
 function stopGame() {
