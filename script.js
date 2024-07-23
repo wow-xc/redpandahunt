@@ -16,7 +16,11 @@ const pandaPoints = {
 // 래서판다 출현 비율
 const pandaProbability = [0, 0, 0, 0, 1, 2]; // 4:1:1 비율
 
-let timeLeft = 20; // 타이머를 전역 변수로 설정
+let timeLeft = 30; // 타이머를 전역 변수로 설정
+
+const panda = document.createElement('div'); // 판다
+
+const image = document.getElementById('rotate-image');
 
 function showPandas() {
     if (timeLeft <= 1) return; // 1초남기고 잡았을 때 점수버그가 있기에 1초전에 게임 중단
@@ -30,12 +34,11 @@ function showPandas() {
         do {
             randomHole = holes[Math.floor(Math.random() * holes.length)];
         } while (selectedHoles.has(randomHole));
-        
+
         selectedHoles.add(randomHole);
 
         const randomPandaType = pandaTypes[pandaProbability[Math.floor(Math.random() * pandaProbability.length)]];
 
-        const panda = document.createElement('div');
         panda.classList.add('panda', randomPandaType);
         randomHole.appendChild(panda);
         panda.style.display = 'block';
@@ -61,11 +64,11 @@ function startGame() {
     currentScore = 0;
     document.getElementById('current-score').textContent = currentScore;
     document.getElementById('previous-score').textContent = previousScore;
-    document.getElementById('timer').textContent = 20;
+    document.getElementById('timer').textContent = 30;
 
     gameInterval = setInterval(showPandas, 1500);
 
-    timeLeft = 20; // 타이머 초기화
+    timeLeft = 30; // 타이머 초기화
     timerInterval = setInterval(() => {
         timeLeft -= 1;
         document.getElementById('timer').textContent = timeLeft;
@@ -104,7 +107,6 @@ document.getElementById('start-button').addEventListener('click', () => {
 });
 
 document.addEventListener('mousemove', (event) => {
-    const image = document.getElementById('rotate-image');
     const mouseX = event.clientX;
     const mouseY = event.clientY;
 
@@ -119,7 +121,6 @@ document.addEventListener('mousemove', (event) => {
 });
 
 document.addEventListener('click', () => {
-    const image = document.getElementById('rotate-image');
 
     image.style.transform = 'rotate(-90deg)';
 
