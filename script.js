@@ -1,6 +1,4 @@
 let currentScore = 0;
-let previousScore = 0;
-let highScore = 0;
 let gameInterval;
 let gameTimeout;
 let timerInterval;
@@ -17,10 +15,10 @@ const pandaPoints = {
 const pandaProbability = [0, 0, 0, 0, 1, 2]; // 4:1:1 비율
 
 let timeLeft = 30; // 타이머를 전역 변수로 설정
-
-const panda = document.createElement('div'); // 판다
-
-const image = document.getElementById('rotate-image');
+let score = document.getElementById('current-score');
+let timer = document.getElementById("timer");
+let startbutton = document.getElementById("start-button");
+const panda = document.createElement('div');
 
 function showPandas() {
     if (timeLeft <= 1) return; // 1초남기고 잡았을 때 점수버그가 있기에 1초전에 게임 중단
@@ -34,7 +32,7 @@ function showPandas() {
         do {
             randomHole = holes[Math.floor(Math.random() * holes.length)];
         } while (selectedHoles.has(randomHole));
-
+        
         selectedHoles.add(randomHole);
 
         const randomPandaType = pandaTypes[pandaProbability[Math.floor(Math.random() * pandaProbability.length)]];
@@ -47,7 +45,7 @@ function showPandas() {
 
         panda.addEventListener('click', () => {
             currentScore += pandaPoints[randomPandaType];
-            document.getElementById('current-score').textContent = currentScore;
+            score.textContent = currentScore;
             panda.remove();
         });
 
@@ -59,19 +57,17 @@ function showPandas() {
 
 function startGame() {
     gameRunning = true;
-    document.getElementById('start-button').disabled = true;
-    previousScore = currentScore;
+    startbutton.disabled = true;
     currentScore = 0;
-    document.getElementById('current-score').textContent = currentScore;
-    document.getElementById('previous-score').textContent = previousScore;
-    document.getElementById('timer').textContent = 30;
+    score.textContent = currentScore;
+    timer.textContent = 30;
 
     gameInterval = setInterval(showPandas, 1500);
 
     timeLeft = 30; // 타이머 초기화
     timerInterval = setInterval(() => {
         timeLeft -= 1;
-        document.getElementById('timer').textContent = timeLeft;
+        timer.textContent = timeLeft;
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
         }
@@ -79,12 +75,8 @@ function startGame() {
 
     gameTimeout = setTimeout(() => {
         clearInterval(gameInterval);
-        if (currentScore > highScore) {
-            highScore = currentScore;
-        }
-        document.getElementById('high-score').textContent = highScore;
-        document.getElementById('start-button').innerText = '게임 시작';
-        document.getElementById('start-button').disabled = false;
+        startbutton.innerText = '게임 시작';
+        startbutton.disabled = false;
         gameRunning = false;
     }, 20000);
 }
@@ -94,11 +86,11 @@ function stopGame() {
     clearInterval(gameInterval);
     clearInterval(timerInterval);
     clearTimeout(gameTimeout);
-    document.getElementById('start-button').innerText = '게임 시작';
-    document.getElementById('start-button').disabled = false;
+    startbutton.innerText = '게임 시작';
+    startbutton.disabled = false;
 }
 
-document.getElementById('start-button').addEventListener('click', () => {
+startbutton.addEventListener('click', () => {
     if (gameRunning) {
         stopGame();
     } else {
