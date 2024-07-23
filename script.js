@@ -31,7 +31,7 @@ function showPandas() {
         do {
             randomHole = holes[Math.floor(Math.random() * holes.length)];
         } while (selectedHoles.has(randomHole));
-        
+
         selectedHoles.add(randomHole);
 
         const randomPandaType = pandaTypes[pandaProbability[Math.floor(Math.random() * pandaProbability.length)]];
@@ -75,7 +75,7 @@ function startGame() {
 
     gameTimeout = setTimeout(() => {
         clearInterval(gameInterval);
-        startbutton.style.display = 'block'; // 시작 버튼 다시 표시
+        startbutton.style.display = 'inline-block'; // 시작 버튼 보이기
         gameRunning = false;
     }, 30000);
 }
