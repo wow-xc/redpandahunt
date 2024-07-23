@@ -19,8 +19,8 @@ body {
 }
 
 .hole {
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     background-image: url('images/hole.png');
     background-size: contain;
     background-position: center;
@@ -28,8 +28,8 @@ body {
     position: relative;
 }
 .panda {
-    width: 60px;
-    height: 54px;
+    width: 80px;
+    height: 74px;
     position: absolute;
     top: 10px;
     left: 20px;
@@ -43,7 +43,6 @@ body {
 }
 
 .panda_ill {
-    height: 52px;
     background-image: url('images/panda/panda_ill.png'); /* 아픈 래서판다 */
     background-size: contain;
     background-position: center;
