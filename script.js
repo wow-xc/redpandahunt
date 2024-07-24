@@ -23,7 +23,7 @@ function showPandas() {
     if (timeLeft <= 1) return; // 1초남기고 잡았을 때 점수버그가 있기에 1초전에 게임 중단
 
     const holes = document.querySelectorAll('.hole');
-    const numPandas = Math.floor(Math.random() * 3) + 1; // 래서판다 랜덤으로 1~3마리
+    const numPandas = Math.floor(Math.random() * 2) + 1; // 래서판다 랜덤으로 1~2마리
     const selectedHoles = new Set();
 
     for (let i = 0; i < numPandas; i++) {
@@ -51,7 +51,7 @@ function showPandas() {
 
         setTimeout(() => {
             panda.remove();
-        }, Math.random() * 1000 + 500); //래서판다 나오는 시간
+        }, Math.random() * 1000 + 1000); //래서판다 나오는 시간
     }
 }
 

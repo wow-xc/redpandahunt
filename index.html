@@ -10,10 +10,17 @@
 <body>
     <div class="container">
         <h1>래서판다 잡기 게임</h1>
-        <p>점수: <span id="current-score">0</span></p>
-        <p>타이머: <span id="timer">30</span> 초</p>
+        <p class="score">점수: <span id="current-score">0</span></p>
+        <p class="timer">타이머: <span id="timer">30</span> 초</p>
+        <div class="rules">
+            <div>1.<img src="images/panda/panda_nomal.png" class="panda_nomal" style="width:50px">을 잡으면 1점!</div>
+            <div>2.<img src="images/panda/panda_ill_remake.png" class="panda_nomal" style="width:50px">을 잡으면 감점!</div>
+            <div>3.<img src="images/panda/panda_gold.png" class="panda_nomal" style="width:50px">을 잡으면 큰 행운이!</div>
+        </div>
         <button id="start-button">게임 시작</button>
-        <div class="grid">
+    </div>
+
+    <div class="grid">
             <div class="hole" id="hole1"></div>
             <div class="hole" id="hole2"></div>
             <div class="hole" id="hole3"></div>
@@ -23,7 +30,6 @@
             <div class="hole" id="hole7"></div>
             <div class="hole" id="hole8"></div>
             <div class="hole" id="hole9"></div>
-        </div>
     </div>
     <script src="script.js"></script>
 </body>

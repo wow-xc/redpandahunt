@@ -19,8 +19,8 @@ body {
 }
 
 .hole {
-    width: 125px;
-    height: 125px;
+    width: 160px;
+    height: 160px;
     background-image: url('images/hole.png');
     background-size: contain;
     background-position: center;
@@ -29,7 +29,7 @@ body {
 }
 .panda {
     width: 80px;
-    height: 72px;
+    height: 80px;
     position: absolute;
     top: 10px;
     left: 20px;
@@ -40,38 +40,89 @@ body {
     background-image: url('images/panda/panda_nomal.png'); /* 기본 래서판다 */
     background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .panda_ill {
     background-image: url('images/panda/panda_ill_remake.png'); /* 아픈 래서판다 */
     background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .panda_gold {
     background-image: url('images/panda/panda_gold.png'); /* 황금 래서판다 */
     background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
+}
+/* 스코어 보드 수정 중  */
+.container {
+    background-color: #ffffffac; 
+    border-radius: 20px; 
+    padding: 30px 40px; 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); 
+    width: 20%;
+    height: 83vh;  
+    position: absolute; 
+    top: 5%; 
+    right: -10%; 
+    transform: translateX(-50%); 
+    text-align: center; 
+    font-family: 'Pretendard', sans-serif; 
+}
+
+h1 {
+    font-size: 2.2rem; 
+    color: #2c3e50; 
+    margin-bottom: 15px; 
+    font-weight: 600; 
+}
+
+.score, .timer {
+    font-size: 1.6rem; 
+    color: #ffffff; 
+    margin: 10px 0; 
+    background-color: #aeaeae; 
+    border-radius: 10px; 
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s; 
+}
+
+.score:hover, .timer:hover {
+    transform: scale(1.05); 
 }
 
 #start-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 20px;
-    font-family: 'Pretendard', sans-serif;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #F15A24; 
+    color: white; 
+    font-size: 1.5rem; 
+    padding: 15px 30px; 
+    border: none; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s; 
+    margin-top: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    font-weight: 600; 
 }
 
 #start-button:hover {
-    background-color: #45a049;
+    background-color: #ff6a34; 
 }
 
-h1, p {
-    font-family: 'Pretendard', sans-serif;
-    font-weight: bold;
+#start-button:active {
+    transform: translateY(2px); 
+    background-color: #ff6a34; 
 }
+
+/* 구멍 위치 수정 중 */
+#hole1 { top: -100%; left: -350%; }
+#hole2 { top: 0%; left: -240%; }
+#hole3 { top: 100%; left: -480%; }
+#hole4 { top: 70%; left: -95%; }
+#hole5 { top: 0%; left: 20%; }
+#hole6 { top: 40%; left: 50%; }
+#hole7 { top: 70%; left: -230%; }
+#hole8 { top: 70%; left: 70%; }
